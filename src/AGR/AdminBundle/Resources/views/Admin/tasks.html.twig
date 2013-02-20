@@ -1,0 +1,60 @@
+{% extends 'AGRAdminBundle::layout.html.twig' %}
+{% block title %}Admin action{% endblock %}
+
+
+{% block right %}
+
+<div class="section">
+	<div class="box">
+		<div class="title">
+			За дату: {{ "now"|date("d/m/Y") }}
+			<span class="hide"></span>
+		</div>
+		<div class="content">
+		  <table>
+         	 <thead>
+         		<tr>
+            		<th>user_id</th>
+            		<th>mail</th>  
+            		<th>timeSum</th>          		  		
+        	 	</tr>
+         	 </thead>
+         	 <tbody>
+				 {% for task in  tasks %}			
+          			<tr>            			
+          				<td>{{ task.user_id }}</td>  
+             			<td>{{ task.mail }}</td>   
+             			<td>
+             			 	{% if 'timeSum' in task|keys %}
+								{{ task.timeSum }}<br>
+					  		{% endif %}
+             				{% if 'total' in task|keys %}					  		
+             				 <table>
+             					<thead>
+         							<tr>
+            							<th>project</th>
+            							<th>task</th>  
+            							<th>time</th>          		  		
+        	 						</tr>
+         	 					</thead>
+         	 					<tbody>
+             					 {% for t in task.total %}         
+             					 	<tr>
+             					 		<td> {{ t.project }}</td>
+             					 		<td> {{ t.task }} </td>
+             					 		<td> {{ t.time }} </td>
+             					 	</tr>
+             					 {% endfor%}
+             					</tbody>
+             				  </table>
+             				{% endif %}
+             			</td>         					
+         			</tr>
+		 		 {% endfor%}
+         	 </tbody>
+           </table>
+		</div>
+	</div>
+</div>
+
+{% endblock %}
