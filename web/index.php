@@ -24,6 +24,6 @@ require_once __DIR__.'/../app/AppKernel.php';
 
 use Symfony\Component\HttpFoundation\Request;
 
-$kernel = new AppKernel($nameSpace, true);
+$kernel = new AppKernel($nameSpace, false);
 $kernel->loadClassCache(); //завантаження класу кеша.
 $kernel->handle(Request::createFromGlobals())->send();
