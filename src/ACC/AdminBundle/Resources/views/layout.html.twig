@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>{% block title %}Welcome!{% endblock %}</title>    
+        
+        {% set uriRes = 'bundles/accadmin/' %}        
+                
+        {% block stylesheets %}{% endblock %}      
+        <link rel="stylesheet" href="{{ asset(uriRes ~ 'css/style.css') }}" type="text/css"/>          
+        <link rel="stylesheet" href="{{ asset(uriRes ~ 'css/forms.css') }}" type="text/css"/>
+        <link rel="stylesheet" href="{{ asset(uriRes ~ 'css/forms-btn.css') }}" type="text/css"/> 
+        <link rel="stylesheet" href="{{ asset(uriRes ~ 'css/menu.css') }}" type="text/css"/> 
+        <link rel="stylesheet" href="{{ asset(uriRes ~ 'css/style_text.css') }}" type="text/css"/> 
+        <link rel="stylesheet" href="{{ asset(uriRes ~ 'css/datatables.css') }}" type="text/css"/> 
+        <link rel="stylesheet" href="{{ asset(uriRes ~ 'css/fullcalendar.css') }}" type="text/css"/> 
+        <link rel="stylesheet" href="{{ asset(uriRes ~ 'css/pirebox.css') }}" type="text/css"/> 
+        <link rel="stylesheet" href="{{ asset(uriRes ~ 'css/modalwindow.css') }}" type="text/css"/> 
+        <link rel="stylesheet" href="{{ asset(uriRes ~ 'css/statics.css') }}" type="text/css"/> 
+        <link rel="stylesheet" href="{{ asset(uriRes ~ 'css/tabs-toggle.css') }}" type="text/css"/> 
+        <link rel="stylesheet" href="{{ asset(uriRes ~ 'css/system-message.css') }}" type="text/css"/> 
+        <link rel="stylesheet" href="{{ asset(uriRes ~ 'css/tooltip.css') }}" type="text/css"/> 
+        <link rel="stylesheet" href="{{ asset(uriRes ~ 'css/wizard.css') }}" type="text/css"/> 
+        <link rel="stylesheet" href="{{ asset(uriRes ~ 'css/wysiwyg.css') }}" type="text/css"/> 
+        <link rel="stylesheet" href="{{ asset(uriRes ~ 'css/wysiwyg.modal.css') }}" type="text/css"/> 
+        <link rel="stylesheet" href="{{ asset(uriRes ~ 'css/wysiwyg-editor.css') }}" type="text/css"/> 
+       
+        {% block javascript %}{% endblock %}
+        <script type="text/javascript" src="{{ asset(uriRes ~ 'js/jquery-1.7.1.min.js') }}"></script>
+        <script type="text/javascript" src="{{ asset(uriRes ~ 'js/jquery.ui.1.8.17.js') }}"></script>
+		<script type="text/javascript" src="{{ asset(uriRes ~ 'js/jquery.ui.select.js') }}"></script>
+		<script type="text/javascript" src="{{ asset(uriRes ~ 'js/jquery.ui.spinner.js') }}"></script>		
+		<script type="text/javascript" src="{{ asset(uriRes ~ 'js/jquery.backgroundPosition.js') }}"></script>
+		<script type="text/javascript" src="{{ asset(uriRes ~ 'js/jquery.placeholder.min.js') }}"></script>
+		<script type="text/javascript" src="{{ asset(uriRes ~ 'js/superfish.js') }}"></script>
+		<script type="text/javascript" src="{{ asset(uriRes ~ 'js/supersubs.js') }}"></script>
+		<script type="text/javascript" src="{{ asset(uriRes ~ 'js/jquery.datatables.js') }}"></script>
+		<script type="text/javascript" src="{{ asset(uriRes ~ 'js/fullcalendar.min.js') }}"></script>
+		<script type="text/javascript" src="{{ asset(uriRes ~ 'js/jquery.smartwizard-2.0.min.js') }}"></script>
+		<script type="text/javascript" src="{{ asset(uriRes ~ 'js/pirobox.extended.min.js') }}"></script>
+		<script type="text/javascript" src="{{ asset(uriRes ~ 'js/jquery.tipsy.js') }}"></script>
+		<script type="text/javascript" src="{{ asset(uriRes ~ 'js/jquery.elastic.source.js') }}"></script>
+		<script type="text/javascript" src="{{ asset(uriRes ~ 'js/jquery.customInput.js') }}"></script>
+		<script type="text/javascript" src="{{ asset(uriRes ~ 'js/jquery.validate.min.js') }}"></script>
+		<script type="text/javascript" src="{{ asset(uriRes ~ 'js/jquery.metadata.js') }}"></script>
+		<script type="text/javascript" src="{{ asset(uriRes ~ 'js/jquery.filestyle.mini.js') }}"></script>
+		<script type="text/javascript" src="{{ asset(uriRes ~ 'js/jquery.filter.input.js') }}"></script>
+		<script type="text/javascript" src="{{ asset(uriRes ~ 'js/jquery.flot.js') }}"></script>
+		<script type="text/javascript" src="{{ asset(uriRes ~ 'js/jquery.flot.pie.min.js') }}"></script>
+		<script type="text/javascript" src="{{ asset(uriRes ~ 'js/jquery.flot.resize.min.js') }}"></script>
+		<script type="text/javascript" src="{{ asset(uriRes ~ 'js/jquery.graphtable-0.2.js') }}"></script>
+		<script type="text/javascript" src="{{ asset(uriRes ~ 'js/jquery.wysiwyg.js') }}"></script>
+		<script type="text/javascript" src="{{ asset(uriRes ~ 'js/controls/wysiwyg.image.js') }}"></script>
+		<script type="text/javascript" src="{{ asset(uriRes ~ 'js/controls/wysiwyg.link.js') }}"></script>
+		<script type="text/javascript" src="{{ asset(uriRes ~ 'js/controls/wysiwyg.table.js') }}"></script>
+		<script type="text/javascript" src="{{ asset(uriRes ~ 'js/plugins/wysiwyg.rmFormat.js') }}"></script>
+		<script type="text/javascript" src="{{ asset(uriRes ~ 'js/costum.js') }}"></script>  
+        
+        <link rel="shortcut icon" href="{{ asset('') }}" />                       
+    </head>
+    <body>       
+     {% block body%}  
+        <div id="wrapper">
+          {% block wrapper%}
+			<div id="container">	
+			  {% block content%}
+				<div class="hide-btn top"></div>
+				<div class="hide-btn center"></div>
+				<div class="hide-btn bottom"></div>		
+				<div id="top">
+					<h1 id="logo"><a href="{{ path("admin_index") }}"></a></h1>
+					<div id="labels">
+						<ul>
+							<li><a href="#" class="user"><span class="bar">Welcome {{ app.user.username }}</span></a></li>
+							<li><a href="#" class="settings"></a></li>
+							<li class="subnav">
+								<a href="#" class="messages"></a>
+								<ul>
+									<li><a href="#">New message</a></li>
+									<li><a href="#">Inbox</a></li>
+									<li><a href="#">Outbox</a></li>
+									<li><a href="#">Trash</a></li>
+								</ul>
+							</li>
+							<li><a href="{{ path('admin_auth_logout') }}" class="logout"></a></li>
+						</ul>
+					</div>
+					<div id="menu">
+						<ul> 
+							<li>
+								<a href="{{ path("area") }}">Ділянки</a>
+								<ul><li><a href="{{ path("area_new") }}">Додати</a></li></ul>
+							</li> 		
+							<li>
+								<a href="{{ path("building_department") }}">Будівельні  управління</a>
+								<ul><li><a href="{{ path("building_department_new") }}">Додати</a></li></ul>
+							</li>
+							<li>
+								<a href="{{ path("categories") }}">Категорії будівель</a>
+								<ul><li><a href="{{ path("categories_new") }}">Додати</a></li></ul>
+							</li>
+							<li>
+								<a href="{{ path("groups") }}">Групи</a>
+								<ul><li><a href="{{ path("groups_new") }}">Додати</a></li></ul>
+							</li>
+							<li>
+								<a href="{{ path("objects") }}">Об'єкти</a>
+								<ul><li><a href="{{ path("objects_new") }}">Додати</a></li></ul>
+							</li>	
+							<li>
+								<a href="{{ path("workers") }}">Робітники</a>
+								<ul><li><a href="{{ path("workers_new") }}">Додати</a></li></ul>
+							</li>										
+							{% block menu %}
+        					{% endblock %}
+						</ul>
+					</div>
+				</div>		
+				<div id="left">					
+					<div class="box statics">
+				      <div class="content">
+					    <ul>
+						    <li><h2>Інформація</h2></li>
+						    <li>Кільксіть таблиць<div class="info blue"><span>6</span></div></li>
+						    <li>Будівельних управілнь<div class="info blue"><span>3</span></div></li>
+					    </ul>
+				      </div>
+				    </div>
+					{% block left %}
+        			{% endblock %}	
+				</div>		
+				<div id="right">	
+					{% block right %}
+        			{% endblock %}			
+				</div>
+			  {% endblock %}		
+			</div>
+			{% block containerFother %}
+            {% endblock %}
+		</div> 
+	  {% endblock %}     
+    </body>
+    {% endblock %}
+</html>

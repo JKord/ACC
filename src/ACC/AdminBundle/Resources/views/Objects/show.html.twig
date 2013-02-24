@@ -1,0 +1,59 @@
+{% extends 'ACCAdminBundle::layout.html.twig' %}
+{% block title %}Area edit{% endblock %}
+
+{% block right%}
+<div class="section">
+	<div class="box">
+		<div class="title">
+			Objects
+			<span class="hide"></span>
+		</div>
+		<div class="content">
+<table class="record_properties">
+    <tbody>
+        <tr>
+            <th>Id</th>
+            <td>{{ entity.id }}</td>
+        </tr>
+        <tr>
+            <th>Кільксть поверхів</th>
+            <td>{{ entity.floors }}</td>
+        </tr>
+        <tr>
+            <th>Будівельні матеріали</th>
+            <td>{{ entity.buildingMaterial }}</td>
+        </tr>
+        <tr>
+            <th>Адреса</th>
+            <td>{{ entity.addresses }}</td>
+        </tr>
+        <tr>
+            <th>Кільксть під'їздів</th>
+            <td>{{ entity.entrances }}</td>
+        </tr>
+        <tr>
+            <th>Розмір</th>
+            <td>{{ entity.size }}</td>
+        </tr>
+        <tr>
+            <th>Тип апартаментів</th>
+            <td>{{ entity.typeApartments }}</td>
+        </tr>
+        <tr>
+            <th>Опис</th>
+            <td>{{ entity.description }}</td>
+        </tr>
+    </tbody>
+</table>
+			<div class="row">
+				<a href="{{ path('objects') }}" class="btn">Назад до списку</a>
+				<a href="{{ path('objects_edit', { 'id': entity.id }) }}" class="btn">Edit</a>
+				<form action="{{ path('objects_delete', { 'id': entity.id }) }}" method="post" class="form_inline">
+            		{{ form_widget(delete_form) }}
+            		<button type="submit" class="btn">Видалити</button>
+        		</form>
+			</div>
+		</div>
+	</div>
+</div>
+{% endblock %}

@@ -1,0 +1,35 @@
+{% extends 'ACCAdminBundle::layout.html.twig' %}
+{% block title %}Building Department{% endblock %}
+
+{% block right%}
+<div class="section">
+	<div class="box">
+		<div class="title">
+			Building Department
+			<span class="hide"></span>
+		</div>
+		<div class="content">
+<table class="record_properties">
+    <tbody>
+        <tr>
+            <th>Id</th>
+            <td>{{ entity.id }}</td>
+        </tr>
+        <tr>
+            <th>Name</th>
+            <td>{{ entity.name }}</td>
+        </tr>
+    </tbody>
+</table>
+			<div class="row">
+				<a href="{{ path('building_department') }}" class="btn">Назад до списку</a>
+				<a href="{{ path('building_department_edit', { 'id': entity.id }) }}" class="btn">Edit</a>
+				<form action="{{ path('building_department_delete', { 'id': entity.id }) }}" method="post" class="form_inline">
+            		{{ form_widget(delete_form) }}
+            		<button type="submit" class="btn">Видалити</button>
+        		</form>
+			</div>
+		</div>
+	</div>
+</div>
+{% endblock %}

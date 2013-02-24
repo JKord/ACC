@@ -1,0 +1,61 @@
+{% extends 'ACCAdminBundle::layout.html.twig' %}
+{% block title %}Area edit{% endblock %}
+
+{% block right%}
+<div class="section">
+	<div class="box">
+		<div class="title">
+			Об'єкти
+			<span class="hide"></span>
+		</div>
+		<div class="content">
+<table class="records_list">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Кільксть поверхів</th>
+            <th>Будівельні матеріали</th>
+            <th>Адреса</th>
+            <th>Кільксть під'їздів</th>
+            <th>Розмір</th>
+            <th>Тип апартаментів</th>
+            <th>Опис</th>
+            <th>Дії</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for entity in entities %}
+        <tr>
+            <td><a href="{{ path('objects_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+            <td>{{ entity.floors }}</td>
+            <td>{{ entity.buildingMaterial }}</td>
+            <td>{{ entity.addresses }}</td>
+            <td>{{ entity.entrances }}</td>
+            <td>{{ entity.size }}</td>
+            <td>{{ entity.typeApartments }}</td>
+            <td>{{ entity.description }}</td>
+            <td>
+                <ul>
+                    <li>
+                        <a href="{{ path('objects_show', { 'id': entity.id }) }}">show</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('objects_edit', { 'id': entity.id }) }}">edit</a>
+                    </li>
+                </ul>
+            </td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+<ul>
+    <li>
+        <a href="{{ path('objects_new') }}">
+            Create a new entry
+        </a>
+    </li>
+</ul>
+		</div>
+	</div>
+</div>
+{% endblock %}

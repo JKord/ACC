@@ -8,4 +8,4 @@
     RewriteRule ^(.*)$ web//$1 [L]
 </IfModule>
 
- SetEnv APPLICATION_ENV production
+#SetEnv APPLICATION_ENV production

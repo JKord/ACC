@@ -1,5 +1,5 @@
 agr_admin:
-    resource: "@AGRAdminBundle/Controller/"
+    resource: "@ACCAdminBundle/Controller/"
     type:     annotation
     prefix:   /
 
