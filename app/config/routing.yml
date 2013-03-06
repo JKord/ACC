@@ -1,4 +1,4 @@
-agr_admin:
+acc_admin:
     resource: "@ACCAdminBundle/Controller/"
     type:     annotation
     prefix:   /

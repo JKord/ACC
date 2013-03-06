@@ -2,6 +2,8 @@
 
 namespace ACC\AdminBundle\Controller;
 
+use Symfony\Component\HttpFoundation\Response;
+
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
@@ -32,6 +34,29 @@ class ObjectsController extends Controller
         return array(
             'entities' => $entities,
         );
+    }
+    
+    protected function createQuery($em,$sql)
+    {
+    	$stmt = $em->getConnection()->prepare($sql);
+    	$stmt->execute();
+    	return $stmt->fetchAll();
+    }
+    
+    /**
+     *
+     * @Route("/json", name="objects_json")
+     */
+    public function getJsonAction()
+    {
+    	$em = $this->getDoctrine()->getManager();
+    
+    	$entities = $this->createQuery($em,"
+    			SELECT o.id, o.id_category, o.id_area, o.floors, o.building_material, 
+    				   o.addresses, o.entrances, o.size , o.type_apartments, o.description
+				FROM `objects` o");
+    
+    	return new Response(json_encode($entities));
     }
 
     /**
